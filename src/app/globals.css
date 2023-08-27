@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollable-modal-section {
+    max-height: 35vh; /* adjust this to your preferred height */
+    overflow-y: scroll;
+  }

@@ -2,7 +2,7 @@
 
 # ClimbOn
 
-A Rock Climbing Workout Tracker that utilizes Next.js 13 AppRouter, MySQL Database, Prisma ORM, Next-Auth, and Tailwind CSS.
+A Rock Climbing Workout Tracker that utilizes Next.js 13 AppRouter, TypeScipt, MySQL Database (PlanetScale), Prisma ORM, Next-Auth, and Tailwind CSS.
 ## Table of Contents
 
 - [Introduction](#introduction)

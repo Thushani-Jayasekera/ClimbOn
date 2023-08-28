@@ -26,24 +26,34 @@ ClimbOn is a rock climbing training tracking application that aims to allow clim
 
 To create a new workout or "climbing session" navigate to "New Session".
   
-https://github.com/AshyLarryM/prisma-planetscale-climbing/assets/89487278/7f125e15-a98c-468a-b974-065ebafad4e6
+https://github.com/AshyLarryM/ClimbOn/assets/89487278/823edeed-5ab1-41ea-b42d-34f63fd65228
+
+
+
 
 Once the user navigates to the New Session page they may click "Start New Climbing Session" to initialize a new climbing training session.  Users will be prompted input the climbs attributes, and once submitted the climb will display for the user with the ability to increase their attempts, if they ended up completing the climb ("Sent"), or delete the climb.  The user can also see workout highlights including total climbs, and the most difficult grade for both climb types.
 
+https://github.com/AshyLarryM/ClimbOn/assets/89487278/2f7b96ed-41f2-4663-91e6-66ec4f7a010b
 
-https://github.com/AshyLarryM/prisma-planetscale-climbing/assets/89487278/718ee001-80e6-4764-a6d6-504fc1dfe810
+
+
+
 
 Once the user has decided they are done with their climbing session they can click "Finish Workout" and review their workout, and assign the workout an intensity level, notes, and see any climbs that were flashed(climbs completed in 1 attempt).  Once the session is "Published" the user is redirected back to their WorkoutHistory Page with their all time records since their account was created.
 
 
 
+https://github.com/AshyLarryM/ClimbOn/assets/89487278/1bd8355c-4ff1-4d68-bbb9-5f83ef3d549b
 
-https://github.com/AshyLarryM/prisma-planetscale-climbing/assets/89487278/4bde4cd7-84b3-4813-9cd1-0009c642fde3
+
+
 
 To view your climbing session history click "View Climbing Session History."
 
 
-https://github.com/AshyLarryM/prisma-planetscale-climbing/assets/89487278/d4b213eb-b46b-4982-b4de-85102bd6c449
+https://github.com/AshyLarryM/ClimbOn/assets/89487278/e24e2a51-4968-4a81-8d60-9cf492415864
+
+
 
 ## Technologies
 - Languages/Libaries

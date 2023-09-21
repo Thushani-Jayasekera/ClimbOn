@@ -1,4 +1,3 @@
-# Builder Stage
 FROM node:18 AS builder
 
 WORKDIR /app
@@ -24,6 +23,10 @@ ENV NODE_ENV production
 
 # Copy the build artifacts from the builder stage
 COPY --from=builder /app/.next /app
+COPY --from=builder /app/.next/static ./standalone/.next/static
+COPY --from=builder /app/public ./standalone/public
+
+RUN ls
 
 USER 10014
 EXPOSE 3000
@@ -31,4 +34,4 @@ EXPOSE 3000
 ENV HOSTNAME 0.0.0.0
 ENV PORT 3000
 
-CMD ["npm", "start"]
+CMD ["node", "./standalone/server.js"]

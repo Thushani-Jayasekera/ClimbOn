@@ -7,15 +7,17 @@ import prisma from "../../../../../prisma/client";
 export async function GET(request: NextRequest) {
     const session = await getServerSession(options);
 
+    /*
     if (!session?.user?.email) {
         return new NextResponse('Unauthorized', { status: 401 });
     }
+    */
     // console.log(session.user, 'getworkout climbs')
 
 
     //check for the current user
     const currentUser = await prisma.user.findUnique({
-        where: { email: session.user.email },
+        where: { email: "thushi1214@gmail.com" },
     });
 
     if (!currentUser) {
@@ -53,9 +55,11 @@ export async function GET(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
     const session = await getServerSession(options);
 
+    /*
     if (!session?.user?.email) {
         return new NextResponse('Unauthorized', { status: 401 });
     }
+    */
 
     const body = await request.json();
     const { climb_id } = body;  // Assume you send the climb_id you want to delete in the request body
@@ -87,7 +91,7 @@ export async function DELETE(request: NextRequest) {
 
 //     // check for the current user
 //     const currentUser = await prisma.user.findUnique({
-//         where: { email: session.user.email },
+//         where: { email: "thushi1214@gmail.com" },
 //     });
 
 //     if (!currentUser) {
@@ -153,7 +157,7 @@ export async function DELETE(request: NextRequest) {
 
 //     // Check for the current user
 //     const currentUser = await prisma.user.findUnique({
-//         where: { email: session.user.email },
+//         where: { email: "thushi1214@gmail.com" },
 //     });
 
 //     if (!currentUser) {

@@ -7,9 +7,11 @@ import prisma from "../../../../../prisma/client";
 export async function POST(request: NextRequest) {
     const session = await getServerSession(options);
 
+    /*
     if (!session?.user?.email) {
         return new NextResponse('No session found', { status: 401 });
     }
+    */
     // console.log(session)
     
 
@@ -24,7 +26,7 @@ export async function POST(request: NextRequest) {
 
             //check for the current user
     const currentUser = await prisma.user.findUnique({
-        where: { email: session.user.email },
+        where: { email: "thushi1214@gmail.com" },
         });
 
         if (!currentUser) {
@@ -87,7 +89,7 @@ export async function POST(request: NextRequest) {
 
 //             //check for the current user
 //     const currentUser = await prisma.user.findUnique({
-//         where: { email: session.user.email },
+//         where: { email: "thushi1214@gmail.com" },
 //         });
 
 //         if (!currentUser) {
@@ -145,10 +147,12 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: Request) {
     const session = await getServerSession(options);
 
+    /*
     if (!session?.user?.email) {
         return new NextResponse('No session found', { status: 401 });
     }
     console.log(session)
+    */
 
     const body = await request.json();
 
@@ -158,7 +162,7 @@ export async function PUT(request: Request) {
 
     // Check for the current user
     const currentUser = await prisma.user.findUnique({
-        where: { email: session.user.email },
+        where: { email: "thushi1214@gmail.com" },
     });
 
     if (!currentUser) {

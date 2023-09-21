@@ -26,6 +26,7 @@ export default function ProfileStats() {
     const fetchData = async () => {
       try {
         const response = await fetch('/api/climb/climbstats'); 
+        console.log(response, "res");
         if (response.ok) {
           const data = await response.json();
           

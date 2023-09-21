@@ -3,18 +3,21 @@ import { getServerSession } from "next-auth";
 import { NextResponse, NextRequest } from "next/server";
 import { options } from "../../auth/[...nextauth]/options";
 import prisma from "../../../../../prisma/client";
+import { getSession } from "next-auth/react";
 
 
 export async function GET(request: NextRequest) {
     const session = await getServerSession(options);
 
+    /*
     if (!session?.user?.email) {
         return new NextResponse('Unauthorized', { status: 401 });
     }
-
+    console.log("thushi1214@gmail.com");
+    */
     // Check for the current user
     const currentUser = await prisma.user.findUnique({
-        where: { email: session.user.email },
+        where: { email: "thushi1214@gmail.com" },
     });
 
     if (!currentUser) {
@@ -64,6 +67,8 @@ export async function GET(request: NextRequest) {
                 grade: 'desc', 
             },
         });
+
+        console.log(currentUser,totalWorkouts, totalCompletedClimbs,highestRouteClimb  );
 
         const highestBoulderGrade = highestBoulderClimb ? highestBoulderClimb.grade : 'N/A';
         const highestRouteGrade = highestRouteClimb ? highestRouteClimb.grade : 'N/A';

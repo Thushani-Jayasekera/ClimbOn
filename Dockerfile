@@ -25,12 +25,10 @@ ENV NODE_ENV production
 # Copy the build artifacts from the builder stage
 COPY --from=builder /app/.next /app
 
-RUN ls
-
 USER 10014
 EXPOSE 3000
 
 ENV HOSTNAME 0.0.0.0
 ENV PORT 3000
 
-CMD ["node", "./standalone/server.js"]
+CMD ["npm", "start"]

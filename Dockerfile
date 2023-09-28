@@ -1,37 +1,36 @@
-FROM node:18 AS builder
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
 COPY . .
 
-RUN npm ci
+RUN if [ -f "./package-lock.json" ]; then npm install; \
+    elif [ -f "./yarn.lock" ]; then yarn; \
+    elif [ -f "./pnpm-lock.yaml" ]; then pnpm install;fi
 
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN npx prisma generate
-RUN npm run build
+RUN npx prisma generate && npm run build
 
 # Runner Stage
-FROM node:18 AS runner
+FROM node:18-alpine AS runner
 
 WORKDIR /app
 
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
 
-# Copy the build artifacts from the builder stage
-COPY --from=builder /app/.next /app
-COPY --from=builder /app/.next/static ./standalone/.next/static
-COPY --from=builder /app/public ./standalone/public
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 10015
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder --chown=10015:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=10015:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=10015:nodejs /app/public ./public
 
-RUN ls
-
-USER 10014
+USER 10015
 EXPOSE 3000
 
-ENV HOSTNAME 0.0.0.0
 ENV PORT 3000
 
-CMD ["node", "./standalone/server.js"]
+CMD ["node", "server.js"]
